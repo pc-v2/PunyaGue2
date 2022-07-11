@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1067704086912",
+    "project_id": "punyague2-365e4",
+    "storage_bucket": "punyague2-365e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067704086912:android:5f9ad5a0c45dae4cfed165",
+        "android_client_info": {
+          "package_name": "com.david.punyague2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067704086912-0dec5hnkrll4fh06j793i15m7beg1rfh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4XfVqBydL6Wiu0Z8hK9EQ3dPncK0No9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067704086912-0dec5hnkrll4fh06j793i15m7beg1rfh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
