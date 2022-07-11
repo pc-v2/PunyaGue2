@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity implements com.david.punyague2.Interface.ItemClickListener {
     Button btnSignIn;
     EditText usernameSignIn, passwordSignIn;
     TextView lupaPswd;
@@ -29,15 +29,12 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         //view
-        btnSignIn      = (Button)   findViewById(R.id.signin_button);
-        usernameSignIn = (EditText) findViewById(R.id.usernameSignIn);
-        passwordSignIn = (EditText) findViewById(R.id.passwordSignIn);
-        lupaPswd       = (TextView) findViewById(R.id.lupaPswd);
-        lupaPswd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SignInActivity.this, LupaPassword.class);
-            }
+        btnSignIn      = findViewById(R.id.signup_button);
+        usernameSignIn = findViewById(R.id.usernameSignIn);
+        passwordSignIn = findViewById(R.id.passwordSignIn);
+        lupaPswd       = findViewById(R.id.lupaPswd);
+        lupaPswd.setOnClickListener(v -> {
+            Intent intent = new Intent(SignInActivity.this, LupaPassword.class);
         });
 
         mAuth = FirebaseAuth.getInstance();
@@ -45,21 +42,25 @@ public class SignInActivity extends AppCompatActivity {
 
     }
     private void signInUser(String email,final String password){
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful())
-                {
-                    if (password.length() < 8) {
-                        Toast.makeText(SignInActivity.this, "Password harus > 8 karakter", Toast.LENGTH_SHORT).show();
-                    }
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
+            if (!task.isSuccessful())
+            {
+                if (password.length() < 8) {
+                    Toast.makeText(SignInActivity.this, "Password harus > 8 karakter", Toast.LENGTH_SHORT).show();
                 }
-                else
-                {
-                    startActivity(new Intent(SignInActivity.this, HomeActivity.class));
-                }
+            }
+            else
+            {
+                startActivity(new Intent(SignInActivity.this, HomeActivity.class));
             }
         });
     }
 
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.btnSignIn){
+            signInUser(usernameSignIn.getText().toString(),
+                    passwordSignIn.getText().toString());
+        }
+    }
 }
