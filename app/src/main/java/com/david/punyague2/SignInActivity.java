@@ -59,7 +59,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithEmail:success");
                         FirebaseUser user = mAuth.getCurrentUser();
-                        updateUI(user);
+                        startActivity(new Intent(SignInActivity.this,HomeActivity.class));
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithEmail:failure", task.getException());
