@@ -10,7 +10,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin">
 
     <EditText
-        android:id="@+id/usernameSignIn"
+        android:id="@+id/usernameSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="392dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/passwordSignIn"
+        android:id="@+id/passwordSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -35,7 +35,7 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameSignIn" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameSignUp" />
 
     <Button
         android:id="@+id/signup_button"
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordSignIn"
+        app:layout_constraintTop_toBottomOf="@+id/passwordSignUp"
         app:layout_constraintVertical_bias="0.989" />
 
     <ProgressBar
@@ -62,8 +62,8 @@
         android:layout_marginBottom="64dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/passwordSignIn"
-        app:layout_constraintStart_toStartOf="@+id/passwordSignIn"
+        app:layout_constraintEnd_toEndOf="@+id/passwordSignUp"
+        app:layout_constraintStart_toStartOf="@+id/passwordSignUp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 

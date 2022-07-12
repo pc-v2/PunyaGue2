@@ -11,12 +11,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.david.punyague2.Interface.ItemClickListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignInActivity extends AppCompatActivity implements com.david.punyague2.Interface.ItemClickListener {
+public class SignInActivity extends AppCompatActivity implements ItemClickListener, View.OnClickListener {
     Button btnSignIn;
     EditText usernameSignIn, passwordSignIn;
     TextView lupaPswd;
@@ -35,9 +36,12 @@ public class SignInActivity extends AppCompatActivity implements com.david.punya
         lupaPswd       = findViewById(R.id.lupaPswd);
         lupaPswd.setOnClickListener(v -> {
             Intent intent = new Intent(SignInActivity.this, LupaPassword.class);
+            startActivity(intent);
         });
 
         mAuth = FirebaseAuth.getInstance();
+
+        btnSignIn.setOnClickListener(this);
 
 
     }
@@ -63,4 +67,5 @@ public class SignInActivity extends AppCompatActivity implements com.david.punya
                     passwordSignIn.getText().toString());
         }
     }
+
 }
