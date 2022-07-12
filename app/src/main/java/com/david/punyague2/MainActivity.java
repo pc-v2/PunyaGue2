@@ -29,24 +29,19 @@ public class MainActivity extends AppCompatActivity {
     mAuth = FirebaseAuth.getInstance();
 
         // assign method ke button daftar & login
-        signInBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SignInActivity.class);
-                startActivity(intent);
-            }
+        signInBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this,SignInActivity.class);
+            startActivity(intent);
         });
 
-        signUpBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SignUpActivity.class);
-                startActivity(intent);
-            }
+        signUpBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this,SignUpActivity.class);
+            startActivity(intent);
         });
     }
     private void updateUI(FirebaseUser user) {
         user.reload();
+
     }
     @Override
     public void onStart() {
@@ -54,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update state accordingly.
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null){
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
             updateUI(user);
         } else {
             Toast.makeText(MainActivity.this, R.string.blm_sign_up_dulu, Toast.LENGTH_LONG).show();
-            startActivity(new Intent(MainActivity.this, SignInActivity.class));
         }
 
     }
