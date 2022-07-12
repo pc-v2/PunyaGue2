@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnSignIn;
     EditText usernameSignIn, passwordSignIn;
-    TextView lupaPswd, blmSignUp;
+    TextView lupaPswd;
 
     private FirebaseAuth mAuth;
 
@@ -37,15 +37,11 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         usernameSignIn = findViewById(R.id.usernameSignIn);
         passwordSignIn = findViewById(R.id.passwordSignIn);
         lupaPswd       = findViewById(R.id.lupaPswd);
-        blmSignUp      = findViewById(R.id.blmSignUp);
         lupaPswd.setOnClickListener(v -> {
             Intent intent = new Intent(SignInActivity.this, LupaPassword.class);
             startActivity(intent);
         });
-        blmSignUp.setOnClickListener(v -> {
-            Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
-            startActivity(intent);
-        });
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -65,27 +61,11 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         Log.w(TAG, "signInWithEmail:failure", task.getException());
                         Toast.makeText(SignInActivity.this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
-                        updateUI(null);
                     }
                 });
     }
 
-    private void updateUI(FirebaseUser user) {
-        startActivity(new Intent(SignInActivity.this,HomeActivity.class));
-        user.reload();
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update state accordingly.
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null){
-            updateUI(user);
-        } else {
-            Toast.makeText(SignInActivity.this, R.string.blm_sign_up_dulu, Toast.LENGTH_LONG).show();
-        }
 
-    }
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.signin_button)
