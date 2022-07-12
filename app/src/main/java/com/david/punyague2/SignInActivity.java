@@ -29,7 +29,7 @@ public class SignInActivity extends AppCompatActivity implements com.david.punya
         setContentView(R.layout.activity_sign_in);
 
         //view
-        btnSignIn      = findViewById(R.id.signup_button);
+        btnSignIn      = findViewById(R.id.signin_button);
         usernameSignIn = findViewById(R.id.usernameSignIn);
         passwordSignIn = findViewById(R.id.passwordSignIn);
         lupaPswd       = findViewById(R.id.lupaPswd);
