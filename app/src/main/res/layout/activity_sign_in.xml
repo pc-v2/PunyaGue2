@@ -75,11 +75,24 @@
         android:id="@+id/lupaPswd"
         android:layout_width="228dp"
         android:layout_height="30dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="@string/lupa_password"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordSignIn" />
+
+    <TextView
+        android:id="@+id/blmSignUp"
+        android:layout_width="228dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/blm_sign_up"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lupaPswd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

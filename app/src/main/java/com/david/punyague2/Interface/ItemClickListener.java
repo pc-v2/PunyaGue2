@@ -3,11 +3,7 @@ package com.david.punyague2.Interface;
 import android.view.View;
 
 public interface ItemClickListener {
-    default void onClick() {
-        onClick();
-    }
+    void onClick(View view, int position);
 
-    default void onClick(View view) {
-
-    }
+    void onClick(View view);
 }
